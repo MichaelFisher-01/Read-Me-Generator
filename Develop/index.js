@@ -1,10 +1,10 @@
-// TODO: Include packages needed for this application
+// Variables and required files.
 const inquirer = require('inquirer');
 const fs = require('fs');
 
 var licenseText = "Placeholder Text";
 
-// TODO: Create an array of questions for user input
+// An array of questions for user input
 inquirer.prompt([
     {
         type: 'input',
@@ -53,9 +53,9 @@ inquirer.prompt([
         choices: ['Community License', 'MIT License', 'GNU GPLv3 License']
     }
 ])
-
+//After obtaining the input perform actions with that data
 .then ((data) => {
-
+//This will converted the selected license type into the full text required.
 if (data.license === "Community License") {
     licenseText = fs.readFileSync('./Licenses/Community.txt', 'utf8')
 }
@@ -65,6 +65,7 @@ else if (data.license === "MIT License") {
 else {
     licenseText = fs.readFileSync('./Licenses/GNU license.txt', 'utf8')
 }
+// storing the information that needs to be written to a file into a variable.
 const readMeText =         
 `#${data.title}
 
@@ -105,14 +106,9 @@ ${data.email}
 ${licenseText}`
 
 const fileName = 'ReadMe.md'
-
+//Creating the file and writing the readMeText to that file.
 fs.writeFile(fileName, readMeText, (err) =>
 err ? console.log(err) : console.log('Read Me Generated')
 );
 });
-// TODO: Create a function to write README file
 
-// TODO: Create a function to initialize app
-
-
-// Function call to initialize app
