@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-var licenseText = "Placeholder Text";
+var licenseText;
 
 // An array of questions for user input
 inquirer.prompt([
@@ -50,21 +50,28 @@ inquirer.prompt([
         type: 'list',
         message: 'What type of license does the project require?',
         name: 'license',
-        choices: ['APACHE 2.0', 'MIT', 'GPL 3.0', 'BSD 3', 'None']
+        choices: ['APACHE 2.0', 'MIT', 'GPL 3.0', 'GLU AGPLv3', 'None']
     }
 ])
 //After obtaining the input perform actions with that data
 .then ((data) => {
 //This will converted the selected license type into the full text required.
-if (data.license === "Community License") {
-    licenseText = fs.readFileSync('./Licenses/Community.txt', 'utf8')
+if (data.license === "APACHE 2.0") {
+    licenseText = fs.readFileSync('./Licenses/APACHE 2.0.txt', 'utf8')
 }
-else if (data.license === "MIT License") {
-    licenseText = fs.readFileSync('./Licenses/MIT License.txt', 'utf8')
+else if (data.license === "MIT") {
+    licenseText = fs.readFileSync('./Licenses/MIT.txt', 'utf8')
+}
+else if (data.license === "GPL 3.0") {
+    licenseText = fs.readFileSync('./Licenses/GPL 3.0.txt', 'utf8')
+}
+else if (data.license === "GNU AGPLv3"){
+    licenseText = fs.readFileSync('./Licenses/GNU AGPLv3.txt', 'utf8')
 }
 else {
-    licenseText = fs.readFileSync('./Licenses/GNU license.txt', 'utf8')
+    licenseText = "No license exsist for this project"
 }
+
 // storing the information that needs to be written to a file into a variable.
 const readMeText =         
 `#${data.title}
