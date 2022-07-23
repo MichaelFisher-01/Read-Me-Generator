@@ -14,7 +14,7 @@ inquirer.prompt([
     {
         type: 'input',
         name: 'github',
-        message: 'What is your github information?',
+        message: 'What is your github username?',
     },
     {
         type: 'input',
@@ -29,7 +29,8 @@ inquirer.prompt([
     {
         type: 'input',
         name: 'installation',
-        message: 'What commaned shoud lbe run to install dependencies?',
+        message: 'What commaned shoud be run to install dependencies?',
+        default: 'npm i',
     },
     {
         type: 'input',
@@ -45,6 +46,7 @@ inquirer.prompt([
         type: 'input',
         name: 'test',
         message: 'What command shoud be run to run tests?',
+        default: 'npm test',
     },
     {
         type: 'list',
@@ -91,32 +93,34 @@ ${data.description}
 
 ## Installation
 
-${data.installation}
+Run the following command(s) to install the dependncies: ${data.installation}
 
 ## Usage
 
 ${data.usage}
 
-##Contribution
+## Contribution
 
 ${data.contribution}
 
-##Testing Instructions
-${data.test}
+## Testing
+To test the project please use: ${data.test}
 
-##Questions
-Feel free to reach out with questions to:
+## Questions
+If you have questions you can contact me at:
 ${data.github}
 ${data.email}
 
-##License Information
+## License Information
 
 ${licenseText}`
-
+// Giving the file the generic read me name.
 const fileName = 'ReadMe.md'
+
 //Creating the file and writing the readMeText to that file.
 fs.writeFile(fileName, readMeText, (err) =>
 err ? console.log(err) : console.log('Read Me Generated')
 );
+
 });
 
