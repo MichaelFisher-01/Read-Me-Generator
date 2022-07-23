@@ -24,33 +24,33 @@ inquirer.prompt([
     {
         type: 'input',
         name: 'description',
-        message: 'Please descript the project...',
+        message: 'Please write a description of the project.',
     },
     {
         type: 'input',
         name: 'installation',
-        message: 'How is the project installed?',
+        message: 'What commaned shoud lbe run to install dependencies?',
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'What is the usage information for this project?',
+        message: 'What does the user need to know about using the repo?',
     },
     {
         type: 'input',
         name: 'contribution',
-        message: 'How can someone contribute to the project?',
+        message: 'What does the user need to know about contributing to the repo?',
     },
     {
         type: 'input',
         name: 'test',
-        message: 'What are test cases for the project?',
+        message: 'What command shoud be run to run tests?',
     },
     {
         type: 'list',
         message: 'What type of license does the project require?',
         name: 'license',
-        choices: ['Community License', 'MIT License', 'GNU GPLv3 License']
+        choices: ['APACHE 2.0', 'MIT', 'GPL 3.0', 'BSD 3', 'None']
     }
 ])
 //After obtaining the input perform actions with that data
@@ -68,6 +68,7 @@ else {
 // storing the information that needs to be written to a file into a variable.
 const readMeText =         
 `#${data.title}
+![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
 
 ##Description
 ${data.description}
