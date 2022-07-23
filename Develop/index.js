@@ -52,7 +52,7 @@ inquirer.prompt([
         type: 'list',
         message: 'What type of license does the project require?',
         name: 'license',
-        choices: ['APACHE 2.0', 'MIT', 'GPL 3.0', 'GLU AGPLv3', 'None']
+        choices: ['APACHE 2.0', 'MIT', 'GPL 3.0', 'GNU AGPLv3', 'None']
     }
 ])
 //After obtaining the input perform actions with that data
@@ -77,7 +77,7 @@ else {
 // storing the information that needs to be written to a file into a variable.
 const readMeText =         
 `#${data.title}
-![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
+![GitHub license](https://img.shields.io/badge/license-${data.license.split(' ').join('%')}-blue.svg)
 
 ##Description
 ${data.description}
@@ -87,7 +87,6 @@ ${data.description}
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributions](#contributions)
-- [Guidelines](#guidelines)
 - [Testing](#testing)
 - [Questions](#questions)
 
@@ -99,7 +98,7 @@ Run the following command(s) to install the dependncies: ${data.installation}
 
 ${data.usage}
 
-## Contribution
+## Contributions
 
 ${data.contribution}
 
