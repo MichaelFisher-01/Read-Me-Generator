@@ -1,5 +1,6 @@
 #Read Me Generator
-![GitHub license](https://img.shields.io/badge/license-APACHE%2.0-blue.svg)
+
+![GitHub license](https://img.shields.io/badge/license-APACHE2.0-blue.svg)
 
 ##Description
 This project allows the user to created a readme based of CLI (command line inputs).
