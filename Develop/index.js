@@ -73,13 +73,13 @@ inquirer
 		}
 
 		// storing the information that needs to be written to a file into a variable.
-		const readMeText = `#${data.title}
+		const readMeText = `# ${data.title}
 
     ![GitHub license](https://img.shields.io/badge/license-${data.license
 			.split(' ')
 			.join('')}-blue.svg)
 
-##Description
+## Description
 ${data.description}
 
 ##Table of Contents
